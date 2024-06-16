@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Browse Response</title>
+</head>
+<body>
+<h2>Route Details</h2>
+
+<p>Source: <span th:text="${src}"></span></p>
+<p>Destination: <span th:text="${dest}"></span></p>
+
+<h3>Buses List</h3>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Bus Name</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over busesList -->
+    <tr th:each="bus : ${busesList}">
+        <td th:text="${bus.name}"></td>
+        <td>
+            <a th:href="@{/availableSeats/{id}(id=${bus.busId})}">Book Seat</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

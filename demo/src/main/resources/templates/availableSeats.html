@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Seats</title>
+</head>
+<body>
+<h2>Available Seats for Bus ID: <span th:text="${busId}"></span></h2>
+
+<h3>Seats List</h3>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Seat Number</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over seatListMap -->
+    <tr th:each="seat : ${seatList}">
+        <td th:text="${seat.seatNumber}"></td>
+        <td>
+            <a th:href="@{/bookSeat/{id}(id=${seat.seatId})}">Book Seat</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
